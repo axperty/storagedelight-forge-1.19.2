@@ -30,7 +30,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GLOWBERRY_CRATE = registerBlock("glowberry_crate",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(2.0f, 3.0f).sound(SoundType.WOOD)), ModCreativeModeTab.CREATIVE_MODE_TAB);
+                    .strength(2.0f, 3.0f).sound(SoundType.WOOD).lightLevel((state) -> 7)), ModCreativeModeTab.CREATIVE_MODE_TAB);
 
     public static final RegistryObject<Block> EGG_CRATE = registerBlock("egg_crate",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)

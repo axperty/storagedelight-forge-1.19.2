@@ -5,7 +5,7 @@ license="MIT License"
 
 [[mods]]
 modId="cratedelight"
-version="1.0.0-1.19.2"
+version="1.0.1-1.19.2"
 displayName="Crate Delight"
 logoFile="logo.png"
 authors="Axperty"
@@ -27,8 +27,8 @@ description='''An addon for Farmer's Delight that adds more crates to the base g
     side="BOTH"
 
 [[dependencies.cratedelight]]
-modId="farmersdelight"
-mandatory=true
-versionRange="${minecraft_version_range}"
-ordering="NONE"
-side="BOTH"
+    modId="farmersdelight"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"

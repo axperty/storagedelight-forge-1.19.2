@@ -8,7 +8,7 @@ public class ModCreativeModeTab {
     public static final CreativeModeTab CREATIVE_MODE_TAB = new CreativeModeTab("creativetab") {
       @Override
       public ItemStack makeIcon() {
-          return new ItemStack(ModBlocks.APPLE_CRATE.get());
+          return new ItemStack(ModBlocks.BERRY_CRATE.get());
       }
     };
 }
