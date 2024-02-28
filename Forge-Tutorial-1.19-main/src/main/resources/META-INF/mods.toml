@@ -4,13 +4,13 @@ loaderVersion="[43,)"
 license="MIT License"
 
 [[mods]]
-modId="cratedelight"
-version="1.0.1-1.19.2"
-displayName="Crate Delight"
+modId="storagedelight"
+version="1.0.0-1.19.2"
+displayName="Storage Delight"
 logoFile="logo.png"
 authors="Axperty"
 
-description='''An addon for Farmer's Delight that adds more crates to the base game.'''
+description='''An addon for Farmer's Delight that adds more storage options to the base game.'''
 
 [[dependencies.cratedelight]]
     modId="forge"

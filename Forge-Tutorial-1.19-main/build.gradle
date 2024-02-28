@@ -6,9 +6,9 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = '1.0.1-1.19.2'
-group = 'com.axperty.cratedelight' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'cratedelight'
+version = '1.0.0-1.19.2'
+group = 'com.axperty.storagedelight' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'storagedelight'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -27,10 +27,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'cratedelight'
+            property 'forge.enabledGameTestNamespaces', 'storagedelight'
 
             mods {
-                cratedelight {
+                storagedelight {
                     source sourceSets.main
                 }
             }
@@ -43,10 +43,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'cratedelight'
+            property 'forge.enabledGameTestNamespaces', 'storagedelight'
 
             mods {
-                cratedelight {
+                storagedelight {
                     source sourceSets.main
                 }
             }
@@ -59,10 +59,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'cratedelight'
+            property 'forge.enabledGameTestNamespaces', 'storagedelight'
 
             mods {
-                cratedelight {
+                storagedelight {
                     source sourceSets.main
                 }
             }
@@ -75,10 +75,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'cratedelight', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'storagedelight', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                cratedelight {
+                storagedelight {
                     source sourceSets.main
                 }
             }
@@ -119,7 +119,7 @@ mixin {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "cratedelight",
+                "Specification-Title"     : "storagedelight",
                 "Specification-Vendor"    : "axperty",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,

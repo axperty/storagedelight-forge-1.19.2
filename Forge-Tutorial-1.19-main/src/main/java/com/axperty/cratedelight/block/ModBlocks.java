@@ -1,62 +1,62 @@
 package com.axperty.cratedelight.block;
 
-import com.axperty.cratedelight.CrateDelight;
-import com.axperty.cratedelight.item.ModCreativeModeTab;
-import com.axperty.cratedelight.item.ModItems;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
+import com.axperty.cratedelight.StorageDelight;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 public class ModBlocks {
-    public static final DeferredRegister<Block> BLOCKS =
-            DeferredRegister.create(ForgeRegistries.BLOCKS, CrateDelight.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, StorageDelight.MOD_ID);
 
-    public static final RegistryObject<Block> APPLE_CRATE = registerBlock("apple_crate",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(2.0f, 3.0f).sound(SoundType.WOOD)), ModCreativeModeTab.CREATIVE_MODE_TAB);
-
-    public static final RegistryObject<Block> BERRY_CRATE = registerBlock("berry_crate",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(2.0f, 3.0f).sound(SoundType.WOOD)), ModCreativeModeTab.CREATIVE_MODE_TAB);
-
-    public static final RegistryObject<Block> GLOWBERRY_CRATE = registerBlock("glowberry_crate",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(2.0f, 3.0f).sound(SoundType.WOOD).lightLevel((state) -> 7)), ModCreativeModeTab.CREATIVE_MODE_TAB);
-
-    public static final RegistryObject<Block> EGG_CRATE = registerBlock("egg_crate",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(2.0f, 3.0f).sound(SoundType.WOOD)), ModCreativeModeTab.CREATIVE_MODE_TAB);
-
-    public static final RegistryObject<Block> COCOABEANS_BAG = registerBlock("cocoabeans_bag",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOL)
-                    .strength(.8f, .8f).sound(SoundType.WOOL)), ModCreativeModeTab.CREATIVE_MODE_TAB);
-
-    public static final RegistryObject<Block> SUGAR_BAG = registerBlock("sugar_bag",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOL)
-                    .strength(.8f, .8f).sound(SoundType.WOOL)), ModCreativeModeTab.CREATIVE_MODE_TAB);
-
-
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tab);
-        return toReturn;
+    private static ToIntFunction<BlockState> litBlockEmission(int lightValue) {
+        return (state) -> state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block,
-                                                                            CreativeModeTab tab) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
-    }
+    // Drawers
 
-    public static void register(IEventBus eventBus) {
-        BLOCKS.register(eventBus);
-    }
+    public static final RegistryObject<Block> OAK_DRAWER = BLOCKS.register("oak_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> SPRUCE_DRAWER = BLOCKS.register("spruce_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> BIRCH_DRAWER = BLOCKS.register("birch_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> JUNGLE_DRAWER = BLOCKS.register("jungle_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> ACACIA_DRAWER = BLOCKS.register("acacia_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> DARK_OAK_DRAWER = BLOCKS.register("dark_oak_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> MANGROVE_DRAWER = BLOCKS.register("mangrove_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> CRIMSON_DRAWER = BLOCKS.register("crimson_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> WARPED_DRAWER = BLOCKS.register("warped_drawer",
+            () -> new DrawerBlock(Block.Properties.copy(Blocks.BARREL)));
+
+    // Glass Cabinets
+
+    public static final RegistryObject<Block> GLASS_OAK_CABINET = BLOCKS.register("glass_oak_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> GLASS_SPRUCE_CABINET = BLOCKS.register("glass_spruce_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> GLASS_BIRCH_CABINET = BLOCKS.register("glass_birch_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> GLASS_JUNGLE_CABINET = BLOCKS.register("glass_jungle_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> GLASS_ACACIA_CABINET = BLOCKS.register("glass_acacia_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> GLASS_DARK_OAK_CABINET = BLOCKS.register("glass_dark_oak_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> GLASS_MANGROVE_CABINET = BLOCKS.register("glass_mangrove_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> GLASS_CRIMSON_CABINET = BLOCKS.register("glass_crimson_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> GLASS_WARPED_CABINET = BLOCKS.register("glass_warped_cabinet",
+            () -> new GlassCabinetBlock(Block.Properties.copy(Blocks.BARREL)));
+
 }
