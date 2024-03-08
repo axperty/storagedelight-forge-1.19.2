@@ -1,13 +1,13 @@
 
 modLoader="javafml"
-loaderVersion="[43,)"
+loaderVersion="[41,)"
 license="MIT License"
 
 [[mods]]
 modId="storagedelight"
-version="1.0.0-1.19.2"
+version="1.0.1-1.19.2"
 displayName="Storage Delight"
-logoFile="logo.png"
+logoFile="assets/storagedelight/logo.gif"
 authors="Axperty"
 
 description='''An addon for Farmer's Delight that adds more storage options to the base game.'''
@@ -15,7 +15,7 @@ description='''An addon for Farmer's Delight that adds more storage options to t
 [[dependencies.cratedelight]]
     modId="forge"
     mandatory=true
-    versionRange="[43,)"
+    versionRange="[41.1.0,)"
     ordering="NONE"
     side="BOTH"
 
