@@ -1,7 +1,7 @@
-package com.axperty.cratedelight.block.entity;
+package com.axperty.storagedelight.block.entity;
 
-import com.axperty.cratedelight.block.GlassCabinetBlock;
-import com.axperty.cratedelight.registry.ModBlockEntityTypes;
+import com.axperty.storagedelight.block.DrawerBlock;
+import com.axperty.storagedelight.registry.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Vec3i;
@@ -22,19 +22,19 @@ import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class GlassCabinetBlockEntity extends RandomizableContainerBlockEntity
+public class DrawerBlockEntity extends RandomizableContainerBlockEntity
 {
     private NonNullList<ItemStack> contents = NonNullList.withSize(27, ItemStack.EMPTY);
     private ContainerOpenersCounter openersCounter = new ContainerOpenersCounter()
     {
         protected void onOpen(Level level, BlockPos pos, BlockState state) {
-            GlassCabinetBlockEntity.this.playSound(state, SoundEvents.WOODEN_TRAPDOOR_OPEN);
-            GlassCabinetBlockEntity.this.updateBlockState(state, true);
+            DrawerBlockEntity.this.playSound(state, SoundEvents.BARREL_OPEN);
+            DrawerBlockEntity.this.updateBlockState(state, true);
         }
 
         protected void onClose(Level level, BlockPos pos, BlockState state) {
-            GlassCabinetBlockEntity.this.playSound(state, SoundEvents.WOODEN_TRAPDOOR_CLOSE);
-            GlassCabinetBlockEntity.this.updateBlockState(state, false);
+            DrawerBlockEntity.this.playSound(state, SoundEvents.BARREL_CLOSE);
+            DrawerBlockEntity.this.updateBlockState(state, false);
         }
 
         protected void openerCountChanged(Level level, BlockPos pos, BlockState sta, int arg1, int arg2) {
@@ -43,15 +43,15 @@ public class GlassCabinetBlockEntity extends RandomizableContainerBlockEntity
         protected boolean isOwnContainer(Player p_155060_) {
             if (p_155060_.containerMenu instanceof ChestMenu) {
                 Container container = ((ChestMenu) p_155060_.containerMenu).getContainer();
-                return container == GlassCabinetBlockEntity.this;
+                return container == DrawerBlockEntity.this;
             } else {
                 return false;
             }
         }
     };
 
-    public GlassCabinetBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntityTypes.GLASS_CABINET.get(), pos, state);
+    public DrawerBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntityTypes.DRAWER.get(), pos, state);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class GlassCabinetBlockEntity extends RandomizableContainerBlockEntity
 
     @Override
     protected Component getDefaultName() {
-        return Component.translatable("container.storagedelight.glass_cabinet");
+        return Component.translatable("container.storagedelight.drawer");
     }
 
     @Override
@@ -116,14 +116,14 @@ public class GlassCabinetBlockEntity extends RandomizableContainerBlockEntity
 
     void updateBlockState(BlockState state, boolean open) {
         if (level != null) {
-            this.level.setBlock(this.getBlockPos(), state.setValue(GlassCabinetBlock.OPEN, open), 3);
+            this.level.setBlock(this.getBlockPos(), state.setValue(DrawerBlock.OPEN, open), 3);
         }
     }
 
     private void playSound(BlockState state, SoundEvent sound) {
         if (level == null) return;
 
-        Vec3i cabinetFacingVector = state.getValue(GlassCabinetBlock.FACING).getNormal();
+        Vec3i cabinetFacingVector = state.getValue(DrawerBlock.FACING).getNormal();
         double x = (double) worldPosition.getX() + 0.5D + (double) cabinetFacingVector.getX() / 2.0D;
         double y = (double) worldPosition.getY() + 0.5D + (double) cabinetFacingVector.getY() / 2.0D;
         double z = (double) worldPosition.getZ() + 0.5D + (double) cabinetFacingVector.getZ() / 2.0D;

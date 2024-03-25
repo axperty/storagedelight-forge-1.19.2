@@ -1,9 +1,9 @@
-package com.axperty.cratedelight.registry;
+package com.axperty.storagedelight.registry;
 
-import com.axperty.cratedelight.StorageDelight;
-import com.axperty.cratedelight.block.ModBlocks;
-import com.axperty.cratedelight.block.entity.DrawerBlockEntity;
-import com.axperty.cratedelight.block.entity.GlassCabinetBlockEntity;
+import com.axperty.storagedelight.StorageDelight;
+import com.axperty.storagedelight.block.ModBlocks;
+import com.axperty.storagedelight.block.entity.DrawerBlockEntity;
+import com.axperty.storagedelight.block.entity.GlassCabinetBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

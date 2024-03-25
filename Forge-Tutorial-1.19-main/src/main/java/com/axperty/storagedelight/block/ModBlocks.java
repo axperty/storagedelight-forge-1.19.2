@@ -1,6 +1,6 @@
-package com.axperty.cratedelight.block;
+package com.axperty.storagedelight.block;
 
-import com.axperty.cratedelight.StorageDelight;
+import com.axperty.storagedelight.StorageDelight;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;

@@ -1,9 +1,9 @@
-package com.axperty.cratedelight;
+package com.axperty.storagedelight;
 
-import com.axperty.cratedelight.registry.ModBlockEntityTypes;
+import com.axperty.storagedelight.registry.ModBlockEntityTypes;
 import com.mojang.logging.LogUtils;
-import com.axperty.cratedelight.block.ModBlocks;
-import com.axperty.cratedelight.item.ModItems;
+import com.axperty.storagedelight.block.ModBlocks;
+import com.axperty.storagedelight.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;

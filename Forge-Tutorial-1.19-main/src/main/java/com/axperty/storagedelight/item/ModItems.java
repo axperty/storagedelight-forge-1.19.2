@@ -1,7 +1,7 @@
-package com.axperty.cratedelight.item;
+package com.axperty.storagedelight.item;
 
-import com.axperty.cratedelight.StorageDelight;
-import com.axperty.cratedelight.block.ModBlocks;
+import com.axperty.storagedelight.StorageDelight;
+import com.axperty.storagedelight.block.ModBlocks;
 import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

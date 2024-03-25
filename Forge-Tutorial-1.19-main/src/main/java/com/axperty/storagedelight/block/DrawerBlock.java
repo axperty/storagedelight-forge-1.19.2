@@ -1,7 +1,7 @@
-package com.axperty.cratedelight.block;
+package com.axperty.storagedelight.block;
 
-import com.axperty.cratedelight.block.entity.GlassCabinetBlockEntity;
-import com.axperty.cratedelight.registry.ModBlockEntityTypes;
+import com.axperty.storagedelight.block.entity.DrawerBlockEntity;
+import com.axperty.storagedelight.registry.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -28,12 +28,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("deprecation")
-public class GlassCabinetBlock extends BaseEntityBlock
+public class DrawerBlock extends BaseEntityBlock
 {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
 
-    public GlassCabinetBlock(Properties properties) {
+    public DrawerBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(OPEN, false));
     }
@@ -42,8 +42,8 @@ public class GlassCabinetBlock extends BaseEntityBlock
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
             BlockEntity tile = level.getBlockEntity(pos);
-            if (tile instanceof GlassCabinetBlockEntity) {
-                player.openMenu((GlassCabinetBlockEntity) tile);
+            if (tile instanceof DrawerBlockEntity) {
+                player.openMenu((DrawerBlockEntity) tile);
             }
         }
         return InteractionResult.SUCCESS;
@@ -64,8 +64,8 @@ public class GlassCabinetBlock extends BaseEntityBlock
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         BlockEntity tileEntity = level.getBlockEntity(pos);
-        if (tileEntity instanceof GlassCabinetBlockEntity) {
-            ((GlassCabinetBlockEntity) tileEntity).recheckOpen();
+        if (tileEntity instanceof DrawerBlockEntity) {
+            ((DrawerBlockEntity) tileEntity).recheckOpen();
         }
     }
 
@@ -78,8 +78,8 @@ public class GlassCabinetBlock extends BaseEntityBlock
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         if (stack.hasCustomHoverName()) {
             BlockEntity tileEntity = level.getBlockEntity(pos);
-            if (tileEntity instanceof GlassCabinetBlockEntity) {
-                ((GlassCabinetBlockEntity) tileEntity).setCustomName(stack.getHoverName());
+            if (tileEntity instanceof DrawerBlockEntity) {
+                ((DrawerBlockEntity) tileEntity).setCustomName(stack.getHoverName());
             }
         }
     }
@@ -103,7 +103,7 @@ public class GlassCabinetBlock extends BaseEntityBlock
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return ModBlockEntityTypes.GLASS_CABINET.get().create(pos, state);
+        return ModBlockEntityTypes.DRAWER.get().create(pos, state);
     }
 
     @Override
