@@ -1,7 +1,9 @@
 package com.axperty.storagedelight.registry;
 
 import com.axperty.storagedelight.StorageDelight;
+import com.axperty.storagedelight.block.CabinetWithGlassDoorsBlock;
 import com.axperty.storagedelight.block.ModBlocks;
+import com.axperty.storagedelight.block.entity.CabinetWithGlassDoorsBlockEntity;
 import com.axperty.storagedelight.block.entity.DrawerBlockEntity;
 import com.axperty.storagedelight.block.entity.GlassCabinetBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -35,6 +37,19 @@ public class ModBlockEntityTypes {
                             ModBlocks.GLASS_MANGROVE_CABINET.get(),
                             ModBlocks.GLASS_CRIMSON_CABINET.get(),
                             ModBlocks.GLASS_WARPED_CABINET.get())
+                    .build(null));
+
+    public static final RegistryObject<BlockEntityType<CabinetWithGlassDoorsBlockEntity>> CABINET_WITH_GLASS_DOORS = TILES.register("cabinet_with_glass_doors",
+            () -> BlockEntityType.Builder.of(CabinetWithGlassDoorsBlockEntity::new,
+                            ModBlocks.OAK_CABINET_WITH_GLASS_DOORS.get(),
+                            ModBlocks.BIRCH_CABINET_WITH_GLASS_DOORS.get(),
+                            ModBlocks.SPRUCE_CABINET_WITH_GLASS_DOORS.get(),
+                            ModBlocks.JUNGLE_CABINET_WITH_GLASS_DOORS.get(),
+                            ModBlocks.ACACIA_CABINET_WITH_GLASS_DOORS.get(),
+                            ModBlocks.DARK_OAK_CABINET_WITH_GLASS_DOORS.get(),
+                            ModBlocks.MANGROVE_CABINET_WITH_GLASS_DOORS.get(),
+                            ModBlocks.CRIMSON_CABINET_WITH_GLASS_DOORS.get(),
+                            ModBlocks.WARPED_CABINET_WITH_GLASS_DOORS.get())
                     .build(null));
 
 }
