@@ -32,6 +32,7 @@ public class StorageDelight {
     };
 
     public StorageDelight() {
+        System.out.println("[Storage Delight Forge]: Registering items and blocks...");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.ITEMS.register(modEventBus);
@@ -39,5 +40,6 @@ public class StorageDelight {
         ModBlockEntityTypes.TILES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
+        System.out.println("[Storage Delight Forge]: Items and blocks registered successfully!");
     }
 }
