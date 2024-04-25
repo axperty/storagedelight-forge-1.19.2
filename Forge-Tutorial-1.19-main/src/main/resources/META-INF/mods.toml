@@ -7,7 +7,7 @@ license="MIT License"
 modId="storagedelight"
 version="1.1.0-1.19.2-forge"
 displayName="Storage Delight"
-logoFile="assets/storagedelight/logo.gif"
+logoFile="assets/storagedelight/logo.png"
 authors="Axperty"
 
 description='''An addon for Farmer's Delight that adds more storage options to the base game.'''
